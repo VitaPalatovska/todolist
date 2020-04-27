@@ -161,6 +161,7 @@ export class List {
   }
 
   atLeastOneCompleted(): boolean {
+    this.todoListService.set("todos", this.list.todos);
     return this.list.todos.filter(todo => todo.completed).length > 0;
   }
 
@@ -170,6 +171,9 @@ export class List {
   }
 
   saveList(): void {
+    if (this.localListTitle.trim().length === 0) {
+      return;
+    }
     this.lists.push({
       id: this.listId,
       title: this.localListTitle,
@@ -184,6 +188,7 @@ export class List {
     this.list.todos = [];
     this.addList = true;
     this.addTodos = false;
+    this.localListTitle = "";
   }
 
   getLists(): void {

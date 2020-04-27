@@ -64,11 +64,11 @@
           </label>
         </div>-->
         <div>{{ remaining() }} items left</div>
-      </div>
-      <div *ngIf="atLeastOneCompleted()">
-        <button class="clear-completed-btn" (click)="clearCompleted()">
-          Clear completed
-        </button>
+        <div *ngIf="atLeastOneCompleted()">
+          <button class="clear-completed-btn" (click)="clearCompleted()">
+            Clear completed
+          </button>
+        </div>
       </div>
     </div>
   </div>
