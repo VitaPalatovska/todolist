@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { FormsModule } from "@angular/forms/";
 import { Lists } from "../interfaces/lists";
 import { ListObj } from "../interfaces/list";
 import { Todo } from "../interfaces/todo";

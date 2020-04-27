@@ -23,32 +23,31 @@
       />
 
       <div class="todo-item" *ngFor="let todo of list.todos">
-        <div class="todo-item-left">
-          <input
-            type="checkbox"
-            v.model="todo.completed"
-            [(ngModel)]="todo.completed"
-          />
-          <div
-            *ngIf="!todo.editing; else editingToDo"
-            class="todo-item-label"
-            [ngClass]="{ completed: todo.completed }"
-            (dblclick)="editToDo(todo)"
-          >
-            {{ todo.title }}
-          </div>
-          <ng-template #editingToDo>
-            <input
-              type="text"
-              class="todo-item-edit"
-              [(ngModel)]="todo.title"
-              (blur)="doneEdit(todo)"
-              (keyup.enter)="doneEdit(todo)"
-              (keyup.esc)="cancelEdit(todo)"
-              autofocus
-            />
-          </ng-template>
+        <input
+          type="checkbox"
+          v.model="todo.completed"
+          [(ngModel)]="todo.completed"
+        />
+        <div
+          *ngIf="!todo.editing; else editingToDo"
+          class="todo-item-label"
+          [ngClass]="{ completed: todo.completed }"
+          (dblclick)="editToDo(todo)"
+        >
+          {{ todo.title }}
         </div>
+        <ng-template #editingToDo>
+          <input
+            type="text"
+            class="todo-item-edit"
+            [(ngModel)]="todo.title"
+            (blur)="doneEdit(todo)"
+            (keyup.enter)="doneEdit(todo)"
+            (keyup.esc)="cancelEdit(todo)"
+            autofocus
+          />
+        </ng-template>
+
         <div class="remove-item" (click)="deleteToDo(todo.id)">
           &times;
         </div>
