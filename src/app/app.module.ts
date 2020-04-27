@@ -7,9 +7,10 @@ import { AutofocusFixModule } from "ngx-autofocus-fix";
 import { List } from "./lists/lists.component";
 import { NgxWebstorageModule } from "ngx-webstorage";
 import { SESSION_STORAGE } from "ngx-webstorage-service";
+import { AddedLists } from "./added-lists/added-lists.component";
 
 @NgModule({
-  declarations: [AppComponent, List],
+  declarations: [AppComponent, List, AddedLists],
   imports: [
     BrowserModule,
     AppRoutingModule,
