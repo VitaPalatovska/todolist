@@ -36,16 +36,17 @@ export class List {
     this.list = {
       id: 1,
       title: "",
-      todos: []
+      todos: [],
+      editing: false
     };
-
+    /*
     this.setTodoId();
     this.showListTitle();
     this.showLocalTodos();
     this.showCreatedLists();
-    this.getLists();
+    this.getLists();*/
   }
-
+  /*
   setTodoId(): number {
     if (this.todoListService.get("todos") !== null) {
       this.todoId = this.todoListService.get("todos").length - 1;
@@ -177,7 +178,8 @@ export class List {
     this.lists.push({
       id: this.listId,
       title: this.localListTitle,
-      todos: this.list.todos
+      todos: this.list.todos,
+      editing: false
     });
     this.todoListService.saveList(this.lists);
     this.todoListService.removeLocalStorageItem("title");
@@ -201,7 +203,7 @@ export class List {
       this.lists = [];
     }
   }
-
+*/
   showCreatedLists(): boolean {
     if (
       this.todoListService.get("lists") !== null &&

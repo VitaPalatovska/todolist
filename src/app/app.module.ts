@@ -8,9 +8,10 @@ import { List } from "./lists/lists.component";
 import { NgxWebstorageModule } from "ngx-webstorage";
 import { SESSION_STORAGE } from "ngx-webstorage-service";
 import { AddedLists } from "./added-lists/added-lists.component";
+import { CreateTodolist } from "./create-todolist/create-todolist.component";
 
 @NgModule({
-  declarations: [AppComponent, List, AddedLists],
+  declarations: [AppComponent, List, AddedLists, CreateTodolist],
   imports: [
     BrowserModule,
     AppRoutingModule,

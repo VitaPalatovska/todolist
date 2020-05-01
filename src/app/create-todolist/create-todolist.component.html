@@ -1,0 +1,66 @@
+<div class="list-title">
+  <input
+    *ngIf="addListTitle"
+    class="list-title-input"
+    type="text"
+    [(ngModel)]="listTitle"
+    placeholder="Input the list title, please"
+    (keyup.enter)="addNewListTitle()"
+  />
+  <h3 *ngIf="!addListTitle" (dblclick)="editListTitle()">
+    {{ listTitle }}
+  </h3>
+</div>
+
+<div class="list-item">
+  <input
+    type="text"
+    class="todo-input"
+    placeholder="What needs to be done"
+    [(ngModel)]="todoTitle"
+    (keyup.enter)="addToDo()"
+  />
+
+  <div class="todo-item" *ngFor="let todo of todos">
+    <input
+      type="checkbox"
+      v.model="todo.completed"
+      [(ngModel)]="todo.completed"
+    />
+    <div
+      *ngIf="!todo.editing; else editingToDo"
+      class="todo-item-label"
+      [ngClass]="{ completed: todo.completed }"
+      (dblclick)="editToDo(todo)"
+    >
+      {{ todo.title }}
+    </div>
+    <ng-template #editingToDo>
+      <input
+        type="text"
+        class="todo-item-edit"
+        [(ngModel)]="todo.title"
+        (blur)="doneEdit(todo)"
+        (keyup.enter)="doneEdit(todo)"
+        (keyup.esc)="cancelEdit(todo)"
+        autofocus
+      />
+    </ng-template>
+
+    <div class="remove-item" (click)="deleteToDo(todo.id)">
+      &times;
+    </div>
+  </div>
+  <div class="extra-container">
+    <div>{{ remaining() }} items left</div>
+    <div *ngIf="atLeastOneCompleted()">
+      <button class="clear-completed-btn" (click)="clearCompleted()">
+        Clear completed
+      </button>
+    </div>
+  </div>
+</div>
+
+<button class="save-btn" (click)="saveList()">
+  Save
+</button>

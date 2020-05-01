@@ -4,4 +4,5 @@ export interface Lists {
   id: number;
   title: string;
   todos: Todo[];
+  editing: boolean;
 }
